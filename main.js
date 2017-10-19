@@ -50,15 +50,79 @@
 // [1,1,2,3,1,2,3] -> [1,2,3]
 // [1,4,4,4,2,2,4,4,4] -> [1,4,2]
 
-var noDuplicates = function() {
-    
-}
+// messyArray1 = [1,1,2,3,1,2,3]
+// messyArray2 = [1,4,4,4,2,2,4,4,4]
+// var fixedArray = []
+
+// var noDuplicates = function(testArray) {
+//     for (i = 0; i < testArray.length; i++) { //cycle for each index of the messyArrays
+//         if ( (fixedArray.indexOf(testArray[i]) === -1) ){ //if fixedArray doesn't already have the same value from testArray
+//             fixedArray.push(testArray[i]) // addes that index value to testArray
+//         }
+//     } 
+// }
+
+// noDuplicates(messyArray2)
+
+// console.log(fixedArray)
+
+// if fixedArray already has the number, don't add another number
+// Add number to fixedArray
+
+
 
 // 5. Write function that translates a text to Pig Latin, and another that translates back. English is translated to Pig Latin by taking the first letter of every word, moving it to the end of the word and adding "ay".
 
 // "The quick brown fox" -> "Hetay uickqay rownbay oxfay".
+// stringEnglish
+// sentenceArray = stringEnglish.split(' ')
+// sentenceArray.array.forEach(function(element) {
+    
+// }, this);
+// firstLetter = removed from beginning of word
+// firstLetter added to end of every word
+// add -"ay" to end of every word
+// stringPigLatin = sentenceArray.join( ' ' )
 
-// (source: https://adriann.github.io/programming_problems.html)
+var stringEnglish1 = "The quick brown fox"
+
+var toPigLatin = function(englishString) {
+    var stringPigLatin
+    var capitalizeFirstLetter = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+    var sentenceArray = englishString.split(' ')
+    var editedSentenceArray = sentenceArray.map( function(element) {
+        return element.concat(element.charAt(0)).concat('ay').slice(1)
+    });
+    stringPigLatin = editedSentenceArray.join(` `)
+    console.log(capitalizeFirstLetter(stringPigLatin))
+} 
+toPigLatin(stringEnglish1)
+
+var pigLatinString1 = "HeTay uickqay rownbay oxfay"
+
+var toEnglish = function(stringPigLatin) {
+    var stringEnglish
+    var capitalizeFirstLetter = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+    var sentenceArray = stringPigLatin.split(' ')
+    var editedSentenceArray = sentenceArray.map( function(element) {
+        return element.charAt(element.length - 3) + element.slice(0, (element.length-3))
+    });
+    stringEnglish = editedSentenceArray.join(` `)
+    console.log(capitalizeFirstLetter(stringEnglish))
+} 
+toEnglish(pigLatinString1)
+
+
+
+
+// var capitalDays = days.map(function(element, instance, array) {
+//     return element.toUpperCase()
+// })
+// console.log(capitalDays)
 
 // 6. Write a function which takes in two arrays and determines if they contain the same number of the same values.
 // [], [] -> true
