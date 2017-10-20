@@ -1,3 +1,5 @@
+// 1. Write a function which takes an array of numbers, and returns the largest number in that array.
+
 
 // 2. Write a function which, given a year as a number, returns whether that number is a leap year.
 
@@ -123,40 +125,40 @@
 // ["a", "c", "b"], ["a", "b", "c"] -> true
 // [1, 1, 1], [1, 1, 1, 1] -> false
 
-var testArray1a = []
-var testArray1b = []
-var testArray2a = [2, 3, 4]
-var testArray2b = [1, 2, 3]
-var testArray3a = ["a", "c", "b"]
-var testArray3b = ["a", "b", "c"]
-var testArray4a = [1, 1, 1]
-var testArray4b = [1, 1, 1, 1]
+// var testArray1a = []
+// var testArray1b = []
+// var testArray2a = [2, 3, 4]
+// var testArray2b = [1, 2, 3]
+// var testArray3a = ["a", "c", "b"]
+// var testArray3b = ["a", "b", "c"]
+// var testArray4a = [1, 1, 1]
+// var testArray4b = [1, 1, 1, 1]
 
-var arrayComparer = function(array1, array2) {
-    var testArrayLength = function(array1, array2) { //function to test if lengths are the same
-        return (array1.length === array2.length)
-    }
-    array1.sort() //sort arrays so I can then compare them even if the values are mixed up 
-    array2.sort()
-    var arrayContentTester = function(array1, array2) { //function to test if content is the same in arrays 
-        for ( i = 0; i < array1.length; i++) {
-            if (array1[i] === array2[i]) {
-                return true
-            }
-        }
-    }
-    if ((array1.length === 0) && (array2.length === 0)) { // tests if both arrays have zero values, then returns true
-        console.log(true)
-    } else if (testArrayLength(array1, array2) === arrayContentTester(array1, array2)) { // checks if content and array length are both the same, returns true
-        console.log(true)
-    } else if (testArrayLength(array1, array2) !== arrayContentTester(array1, array2)) { // checks if content and array length are not the same, returns false
-        console.log(false)
-    } else {
-        console.log("There's an error.")
-    }
-}
+// var arrayComparer = function(array1, array2) {
+//     var testArrayLength = function(array1, array2) { //function to test if lengths are the same
+//         return (array1.length === array2.length)
+//     }
+//     array1.sort() //sort arrays so I can then compare them even if the values are mixed up 
+//     array2.sort()
+//     var arrayContentTester = function(array1, array2) { //function to test if content is the same in arrays 
+//         for ( i = 0; i < array1.length; i++) {
+//             if (array1[i] === array2[i]) {
+//                 return true
+//             }
+//         }
+//     }
+//     if ((array1.length === 0) && (array2.length === 0)) { // tests if both arrays have zero values, then returns true
+//         console.log(true)
+//     } else if (testArrayLength(array1, array2) === arrayContentTester(array1, array2)) { // checks if content and array length are both the same, returns true
+//         console.log(true)
+//     } else if (testArrayLength(array1, array2) !== arrayContentTester(array1, array2)) { // checks if content and array length are not the same, returns false
+//         console.log(false)
+//     } else {
+//         console.log("There's an error.")
+//     }
+// }
 
-arrayComparer(testArray4a, testArray4b)
+// arrayComparer(testArray4a, testArray4b)
 
 // 7. Write a function which takes in an array of numbers and a max cutoff value, and returns a new array with elements limited by the cutoff value.
 // [1,2,3,4,5,6,7,8], 4 -> [1,2,3,4,4,4,4,4]
@@ -175,3 +177,39 @@ arrayComparer(testArray4a, testArray4b)
 
 // (Source: https://adriann.github.io/programming_problems.html)
 
+// 10. Write a function which accepts two arrays as input. The function should remove all the items from the shorter array, and add them to the end of the longer array. If both arrays are the same length, the function should do nothing. This function does not need to return a value. 
+
+// ```javascript
+// var numbers = ['four', 'eleven']
+// var animals = ['cat', 'bat', 'dolphin']
+// arrayTransfer(numbers, animals)
+// console.log(numbers) // []
+// console.log(animals) // ['cat', 'bat', 'dolphin', 'four', 'eleven']
+
+// ```
+
+// 11. Write a function that uses `Math.random()` to generate a random number between 0-1. Replace all the 3's with 8's, and replace all the 7's with 1's, then return this number. Note that this function should return a `number`, not a `string`. 
+
+// 12. Write a function which accepts a sentence as a string, and returns the longest word in that sentence.
+
+// 'I ate toast for breakfast' -> 'breakfast'
+
+
+// 13. Write a function which accepts a sentence as a string. Capitalize the first letter of each word of the string, and return that. 
+
+// 'I ate toast for breakfast' -> 'I Ate Toast For Breakfast'
+
+
+// 14. Write a function which takes two dates as strings in the format 'YYYY/MM/DD' and returns the number of days between them.
+// '1998/01/24', '1999/01/25' -> 366
+
+// 15. Write a function called `add` that adds two numbers together, and returns the result. The function must be defined such that it can be called in two different ways to achieve the same result. See the example below:
+
+// ```javascript
+// var seven = add(5,2) // returns 7
+// seven = add(5)(2) // also returns 7
+// ```
+
+// 16. Write a function which takes one argument, and returns true if that argument is a whole number (a non-negative integer, e.g. 0, 1, 5, 21, 1000, etc). If the argument is negative, is a decimal number, or is not a number at all, return false. 
+
+// 17. Write a function which returns a random integer from 1 to 10.
