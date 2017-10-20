@@ -84,51 +84,77 @@
 // add -"ay" to end of every word
 // stringPigLatin = sentenceArray.join( ' ' )
 
-var stringEnglish1 = "The quick brown fox"
+// var stringEnglish1 = "The quick brown fox"
 
-var toPigLatin = function(englishString) {
-    var stringPigLatin
-    var capitalizeFirstLetter = function(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    }
-    var sentenceArray = englishString.split(' ')
-    var editedSentenceArray = sentenceArray.map( function(element) {
-        return element.concat(element.charAt(0)).concat('ay').slice(1)
-    });
-    stringPigLatin = editedSentenceArray.join(` `)
-    console.log(capitalizeFirstLetter(stringPigLatin))
-} 
-toPigLatin(stringEnglish1)
+// var toPigLatin = function(englishString) {
+//     var stringPigLatin
+//     var capitalizeFirstLetter = function(string) {
+//         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase(); // this function capitolize the first letter of the string and removes the rest of the string, then it concatinates it to the rest of the string that has the first character removed
+//     }
+//     var sentenceArray = englishString.split(' ')
+//     var editedSentenceArray = sentenceArray.map( function(element) {
+//         return element.concat(element.charAt(0)).concat('ay').slice(1) // this method string returns each element of the array after first adding the first letter to the end of each element, then adding "ay" to the end of each element, then .slice removes the first letter of each element
+//     });
+//     stringPigLatin = editedSentenceArray.join(` `)
+//     console.log(capitalizeFirstLetter(stringPigLatin))
+// } 
+// toPigLatin(stringEnglish1)
 
-var pigLatinString1 = "HeTay uickqay rownbay oxfay"
+// var pigLatinString1 = "HeTay uickqay rownbay oxfay"
 
-var toEnglish = function(stringPigLatin) {
-    var stringEnglish
-    var capitalizeFirstLetter = function(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    }
-    var sentenceArray = stringPigLatin.split(' ')
-    var editedSentenceArray = sentenceArray.map( function(element) {
-        return element.charAt(element.length - 3) + element.slice(0, (element.length-3))
-    });
-    stringEnglish = editedSentenceArray.join(` `)
-    console.log(capitalizeFirstLetter(stringEnglish))
-} 
-toEnglish(pigLatinString1)
+// var toEnglish = function(stringPigLatin) {
+//     var stringEnglish
+//     var capitalizeFirstLetter = function(string) {
+//         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase(); // this function capitolize the first letter of the string and removes the rest of the string, then it concatinates it to the rest of the string that has the first character removed
+//     }
+//     var sentenceArray = stringPigLatin.split(' ')
+//     var editedSentenceArray = sentenceArray.map( function(element) {
+//         return element.charAt(element.length - 3) + element.slice(0, (element.length-3)) //  psudocode to descirbe what these methods do (letter 3 from the right ) concatinated to (the element with the last 3 letters sliced off)
+//     });
+//     stringEnglish = editedSentenceArray.join(` `)
+//     console.log(capitalizeFirstLetter(stringEnglish))
+// } 
+// toEnglish(pigLatinString1)
 
-
-
-
-// var capitalDays = days.map(function(element, instance, array) {
-//     return element.toUpperCase()
-// })
-// console.log(capitalDays)
 
 // 6. Write a function which takes in two arrays and determines if they contain the same number of the same values.
 // [], [] -> true
 // [2, 3, 4], [1, 2, 3] -> false
 // ["a", "c", "b"], ["a", "b", "c"] -> true
 // [1, 1, 1], [1, 1, 1, 1] -> false
+
+var testArray1a = []
+var testArray1b = []
+var testArray2a = [2, 3, 4]
+var testArray2b = [1, 2, 3]
+var testArray2c = ["a", "c", "b"]
+var testArray2c = ["a", "b", "c"]
+var testArray3a = [1, 1, 1]
+var testArray3a = [1, 1, 1, 1]
+
+var arrayComparer = function(array1, array2) {
+    var testArrayLength = function(array1, array2) {
+        return (array1.length === array2.length)
+    }
+    array1.sort()
+    array2.sort()
+    var arrayContentTester = function(array1, array2) {
+        for ( i = 0; i < array1.length; i++) {
+            if (array1[i] === array2[i]) {
+                return true
+            }
+        }
+    }
+    if (testArrayLength === arrayContentTester) {
+        console.log(true)
+    } else if (testArrayLength !== arrayContentTester) {
+        console.log(false)
+    } else {
+        console.log("There's an error.")
+    }
+}
+
+arrayComparer(testArray1a, testArray1b)
 
 // 7. Write a function which takes in an array of numbers and a max cutoff value, and returns a new array with elements limited by the cutoff value.
 // [1,2,3,4,5,6,7,8], 4 -> [1,2,3,4,4,4,4,4]
