@@ -127,34 +127,36 @@ var testArray1a = []
 var testArray1b = []
 var testArray2a = [2, 3, 4]
 var testArray2b = [1, 2, 3]
-var testArray2c = ["a", "c", "b"]
-var testArray2c = ["a", "b", "c"]
-var testArray3a = [1, 1, 1]
-var testArray3a = [1, 1, 1, 1]
+var testArray3a = ["a", "c", "b"]
+var testArray3b = ["a", "b", "c"]
+var testArray4a = [1, 1, 1]
+var testArray4b = [1, 1, 1, 1]
 
 var arrayComparer = function(array1, array2) {
-    var testArrayLength = function(array1, array2) {
+    var testArrayLength = function(array1, array2) { //function to test if lengths are the same
         return (array1.length === array2.length)
     }
-    array1.sort()
+    array1.sort() //sort arrays so I can then compare them even if the values are mixed up 
     array2.sort()
-    var arrayContentTester = function(array1, array2) {
+    var arrayContentTester = function(array1, array2) { //function to test if content is the same in arrays 
         for ( i = 0; i < array1.length; i++) {
             if (array1[i] === array2[i]) {
                 return true
             }
         }
     }
-    if (testArrayLength === arrayContentTester) {
+    if ((array1.length === 0) && (array2.length === 0)) { // tests if both arrays have zero values, then returns true
         console.log(true)
-    } else if (testArrayLength !== arrayContentTester) {
+    } else if (testArrayLength(array1, array2) === arrayContentTester(array1, array2)) { // checks if content and array length are both the same, returns true
+        console.log(true)
+    } else if (testArrayLength(array1, array2) !== arrayContentTester(array1, array2)) { // checks if content and array length are not the same, returns false
         console.log(false)
     } else {
         console.log("There's an error.")
     }
 }
 
-arrayComparer(testArray1a, testArray1b)
+arrayComparer(testArray4a, testArray4b)
 
 // 7. Write a function which takes in an array of numbers and a max cutoff value, and returns a new array with elements limited by the cutoff value.
 // [1,2,3,4,5,6,7,8], 4 -> [1,2,3,4,4,4,4,4]
