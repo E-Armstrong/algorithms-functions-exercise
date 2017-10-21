@@ -65,21 +65,20 @@ arrayFixer(testArray3)
 /*
 messyArray1 = [1,1,2,3,1,2,3]
 messyArray2 = [1,4,4,4,2,2,4,4,4]
-var fixedArray = []
+
 
 var noDuplicates = function(testArray) {
-    for (i = 0; i < testArray.length; i++) { //cycle for each index of the messyArrays
+    var fixedArray = []
+    for (i = 0; i < testArray.length; i++) { //cycle for each index of the testArray
         if ( (fixedArray.indexOf(testArray[i]) === -1) ){ //if fixedArray doesn't already have the same value from testArray
             fixedArray.push(testArray[i]) // addes that index value to testArray
         }
     } 
+    return fixedArray
 }
 
-noDuplicates(messyArray2)
-
-console.log(fixedArray)
+console.log(noDuplicates(messyArray2))
 */
-
 
 /*
 5. Write function that translates a text to Pig Latin, and another that translates back. English is translated to Pig Latin by taking the first letter of every word, moving it to the end of the word and adding "ay".
@@ -197,16 +196,34 @@ var makeMaxValue = function(array, maxCutoff) {
 console.log(makeMaxValue([1,5,7,3,1,5,7], 3))
 */
 
-// E's notes: 
-// compare array elements to cut off value and if greater then replace element with cutoff value
-// function one: compare elements to cut off value
-// function two: replace elements with cut off value
-// function three: if statement that runs function one then if sucessful function two
+/*
+8. Write a function which takes no input and returns an array of 10 distinct randomly generated integers between 1 and 100.
 
-// 8. Write a function which takes no input and returns an array of 10 distinct randomly generated integers between 1 and 100.
+-> [48, 5, 32, 2, 10, 11, 34, 95, 82, 93] (good!)
+-> [1, 1, 24, 63, 45, 84, 17, 11, 59, 13] (bad - duplicated number)
+*/
 
-// -> [48, 5, 32, 2, 10, 11, 34, 95, 82, 93] (good!)
-// -> [1, 1, 24, 63, 45, 84, 17, 11, 59, 13] (bad - duplicated number)
+var makeRandomArray = function() {
+    var randomArray = []
+    while (randomArray.length < 10) {
+        randomArray.push(Math.floor(Math.random() * 100 )) // fills randomArray with 10 random intigers between 1-100
+    }
+    for (i = 0; i < randomArray.length; i ++) { 
+        for (k = 0; k < randomArray.length; k++) { //both for loops check every value against the others
+            if (k !== i) { //this keeps the program comparing two entries of the same index when it is cross referencing for duplicates
+                if (randomArray[i] === randomArray[k]) {
+                    randomArray.slice(i, (i + 1)).push(Math.floor(Math.random() * 100 )) //this code sees if there are two different indexes that have the same value, and if there are, it replaces that index with a new random number between 1-100
+                }
+            }
+        }
+    }
+    return randomArray
+}
+
+console.log(makeRandomArray())
+
+// if fixedArray[i] === fixedArray[k] where k == (every index except for fixedArray[i])
+// then replace fixedArray[i]
 
 // 9. Write a function which takes two sorted lists and merges them into a new sorted list.
 
