@@ -3,6 +3,20 @@
 */
 
 /*
+var largestNumberIs = function(numArray) {
+    var largestNumber = numArray[0] //assign largestNumber an abitrary number from the input array just so it can avoid being undefined
+    for (i = 0; i < numArray.length; i++) { //this for statement looks at all the numbers in the array and makes them compared to the largestNumber variable, if they're larger then the largestNumber variable, that index get's assigned as the new largestNumber
+        if (numArray[i] > largestNumber) {
+            largestNumber = numArray[i]
+        }
+    }
+    return largestNumber
+}
+
+console.log(largestNumberIs([0, 1, 2, 3, 4, 6, 7, 9, 10]))
+*/
+
+/*
 2. Write a function which, given a year as a number, returns whether that number is a leap year.
 
 2000 -> true
@@ -200,8 +214,9 @@ var makeRandomArray = function() {
     }
     for (i = 0; i < randomArray.length; i ++) { 
         for (k = 0; k < randomArray.length; k++) { //both for loops check every value against the others
-            if (k !== i) { //this keeps the program comparing two entries of the same index when it is cross referencing for duplicates
-                 
+            if (k !== i) { //this keeps the program from comparing two entries of the same index when it is cross referencing for duplicates
+                 if (randomArray[i] === randomArray[k]) {
+                     randomArray.slice(i, (i + 1)).push(Math.floor(Math.random() * 100 )) //this code sees if there are two different indexes that have the same value, and if there are, it replaces that index with a new random number between 1-100
                 }
             }
         }
@@ -342,9 +357,24 @@ var longestWordIs = function(stringSentence) {
 console.log(longestWordIs("I ate toast for breakfast"))
 */
 
-// 13. Write a function which accepts a sentence as a string. Capitalize the first letter of each word of the string, and return that. 
+/*
+13. Write a function which accepts a sentence as a string. Capitalize the first letter of each word of the string, and return that. 
 
-// 'I ate toast for breakfast' -> 'I Ate Toast For Breakfast'
+'I ate toast for breakfast' -> 'I Ate Toast For Breakfast'
+*/
+
+/*
+var upperCaseEachWord = function(string) {
+    var productString
+    arrayFromString = string.split(" ")
+    for (i = 0; i < arrayFromString.length; i++) {
+        arrayFromString[i] = arrayFromString[i].charAt(0).toUpperCase() + arrayFromString[i].slice(1).toLowerCase();
+    }
+    return productString = arrayFromString.join(" ")
+}
+
+console.log(upperCaseEachWord("hey hi how are ya?"))
+*/
 
 
 // 14. Write a function which takes two dates as strings in the format 'YYYY/MM/DD' and returns the number of days between them.
