@@ -203,6 +203,7 @@ console.log(makeMaxValue([1,5,7,3,1,5,7], 3))
 -> [1, 1, 24, 63, 45, 84, 17, 11, 59, 13] (bad - duplicated number)
 */
 
+/*
 var makeRandomArray = function() {
     var randomArray = []
     while (randomArray.length < 10) {
@@ -221,30 +222,105 @@ var makeRandomArray = function() {
 }
 
 console.log(makeRandomArray())
+*/
 
-// if fixedArray[i] === fixedArray[k] where k == (every index except for fixedArray[i])
-// then replace fixedArray[i]
+/*
+9. Write a function which takes two sorted lists and merges them into a new sorted list.
 
-// 9. Write a function which takes two sorted lists and merges them into a new sorted list.
+[1,2,5,6,9], [3,4,5,10] -> [1,2,3,4,5,5,6,9,10]
+[], [] -> []
+[-1, 0, 1], [-2, 2] -> [-2, -1, 0, 1, 2]
+*/
 
-// [1,2,5,6,9], [3,4,5,10] -> [1,2,3,4,5,5,6,9,10]
-// [], [] -> []
-// [-1, 0, 1], [-2, 2] -> [-2, -1, 0, 1, 2]
+/*
+var combineSortedLists = function(sortedList1, sortedList2) {
+    var newSortedList = []
+    for (i = 0; i < sortedList1.length; i++) {
+        newSortedList.push(sortedList1[i])
+    }
+    for (i = 0; i < sortedList2.length; i++) {
+        newSortedList.push(sortedList2[i])
+    }
+    return newSortedList.sort(function compareNumbers (a, b) {
+        return a - b;
+    })
+}
 
-// (Source: https://adriann.github.io/programming_problems.html)
+console.log(combineSortedLists([-1, 0, 1], [-2, 2]))
+*/
 
-// 10. Write a function which accepts two arrays as input. The function should remove all the items from the shorter array, and add them to the end of the longer array. If both arrays are the same length, the function should do nothing. This function does not need to return a value. 
+/*
+10. Write a function which accepts two arrays as input. 
+The function should remove all the items from the shorter array, 
+and add them to the end of the longer array. 
+If both arrays are the same length, the function should do nothing. 
+This function does not need to return a value. 
+```javascript
+var numbers = ['four', 'eleven']
+var animals = ['cat', 'bat', 'dolphin']
+arrayTransfer(numbers, animals)
+console.log(numbers) // []
+console.log(animals) // ['cat', 'bat', 'dolphin', 'four', 'eleven']
+```
+Eric's Notes: -one function to compare array.length to each other, true if array1 is longer
+-if first function is true, funnel all of array2 into array1 and delete array2
+if first function is false, do the opposite
+*/
 
-// ```javascript
-// var numbers = ['four', 'eleven']
-// var animals = ['cat', 'bat', 'dolphin']
-// arrayTransfer(numbers, animals)
-// console.log(numbers) // []
-// console.log(animals) // ['cat', 'bat', 'dolphin', 'four', 'eleven']
+/*
+var numbers = ['four', 'eleven']
+var animals = ['cat', 'bat', 'dolphin']
 
-// ```
 
-// 11. Write a function that uses `Math.random()` to generate a random number between 0-1. Replace all the 3's with 8's, and replace all the 7's with 1's, then return this number. Note that this function should return a `number`, not a `string`. 
+var arrayTransfer = function(array1, array2) {
+    var array1OriginalLength = array1.length //needed to create these originl length variables because I can't use the array.length method in the future for loops becasuse the length is getting edited while the loops were running and it defeated the purpose of the loop
+    var array2OriginalLength = array2.length
+    var whichIsLonger = function(array1, array2) { // this function compares array lengths and returns true/false/undefined depending on which was longer or if they were the same length
+        if (array1.length > array2.length) {
+            return true
+        } else if (array1.length < array2.length) {
+            return false
+        } else if (array1.length === array2.length) {
+            return undefined
+        }
+    }
+    if (whichIsLonger(array1, array2) === true) { // if array1 was longer, pushes all of array2 into array1
+        for (i = 0; i < array2OriginalLength; i++) {
+            array1.push(array2.pop())
+        }
+    } else if (whichIsLonger(array1, array2) === false) { // if array2 was longer, pushes all of array1 into array2
+        for (i = 0; i < array1OriginalLength; i++) {
+            array2.push(array1.pop())
+        } 
+    } else if (whichIsLonger(array1, array2) === undefined) {
+        return //the function returns nothing if the array's are the same length
+    }
+}
+
+arrayTransfer(numbers, animals)
+console.log(numbers) // []
+console.log(animals) // ['cat', 'bat', 'dolphin', 'four', 'eleven']
+*/
+
+/*
+11. Write a function that uses `Math.random()` to generate a random number between 0-1. 
+Replace all the 3's with 8's, and replace all the 7's with 1's, 
+then return this number. Note that this function should return 
+a `number`, not a `string`. 
+*/
+
+var randomNumberButIHateThreesAndSevens = function() [
+    Math.random()*
+]
+
+/* Eric's notes: 
+-create a random number  num.toString() = "num"
+-turn number into a string
+-turn string into an array
+-replace numbers in array
+-turn array into string
+-turn string into number .parseFloat()
+-return number 
 
 // 12. Write a function which accepts a sentence as a string, and returns the longest word in that sentence.
 
