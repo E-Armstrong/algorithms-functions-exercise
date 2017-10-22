@@ -320,14 +320,27 @@ var randomNumberButIHateThreesAndSevens = function() {
 console.log(randomNumberButIHateThreesAndSevens())
 */
 
+/*
+12. Write a function which accepts a sentence as a string, and returns the longest word in that sentence.
 
-// 12. Write a function which accepts a sentence as a string, and returns the longest word in that sentence.
+'I ate toast for breakfast' -> 'breakfast'
+*/
 
-// 'I ate toast for breakfast' -> 'breakfast'
-
+/*
 var longestWordIs = function(stringSentence) {
-    
+    var longestWord = ""
+    var sentenceArray
+    sentenceArray = stringSentence.split(" ") //sentence string words split into an array
+    for (i = 0; i < sentenceArray.length; i++) {
+        if (sentenceArray[i].length > longestWord.length) { //if any of the words are longer then new longestWord variable, that word gets assigned to the variable 
+            longestWord = sentenceArray[i]
+        }
+    }
+    return longestWord
 }
+
+console.log(longestWordIs("I ate toast for breakfast"))
+*/
 
 // 13. Write a function which accepts a sentence as a string. Capitalize the first letter of each word of the string, and return that. 
 
