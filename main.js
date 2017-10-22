@@ -85,17 +85,6 @@ console.log(noDuplicates(messyArray2))
 */
 
 /*
-"The quick brown fox" -> "Hetay uickqay rownbay oxfay".
-stringEnglish
-sentenceArray = stringEnglish.split(' ')
-sentenceArray.array.forEach(function(element) {
-    
-}, this);
-firstLetter = removed from beginning of word
-firstLetter added to end of every word
-add -"ay" to end of every word
-stringPigLatin = sentenceArray.join( ' ' )
-
 var stringEnglish1 = "The quick brown fox"
 
 var toPigLatin = function(englishString) {
@@ -212,8 +201,7 @@ var makeRandomArray = function() {
     for (i = 0; i < randomArray.length; i ++) { 
         for (k = 0; k < randomArray.length; k++) { //both for loops check every value against the others
             if (k !== i) { //this keeps the program comparing two entries of the same index when it is cross referencing for duplicates
-                if (randomArray[i] === randomArray[k]) {
-                    randomArray.slice(i, (i + 1)).push(Math.floor(Math.random() * 100 )) //this code sees if there are two different indexes that have the same value, and if there are, it replaces that index with a new random number between 1-100
+                 
                 }
             }
         }
@@ -309,23 +297,37 @@ then return this number. Note that this function should return
 a `number`, not a `string`. 
 */
 
-var randomNumberButIHateThreesAndSevens = function() [
-    Math.random()*
-]
+/*
+var randomNumberButIHateThreesAndSevens = function() {
+    var editedNumber //will hold final result
+    var randomString
+    var randomNumber = Math.random()
+    var randomArray 
+    randomString = randomNumber.toString() //the number is converted into a string
+    randomArray = randomString.split("") //the string is converted into an array
+    for (i = 0; i < randomArray.length; i++) {
+         if (randomArray[i] === '3') {
+            randomArray.splice(i, 1, "8") // this second of the if statement finds all 3's and replaces them with 8's
+        } else if (randomArray[i] === "7") { //finds 
+            randomArray.splice(i, 1, "1") // this second of the if statement finds all 7's and replaces them with 1's
+        }
+    }
+    console.log(randomArray.length)
+    console.log(randomArray)
+    return editedNumber = Number(randomArray.join("")) //this converts the array to a string, which is then converted to a number
+}
 
-/* Eric's notes: 
--create a random number  num.toString() = "num"
--turn number into a string
--turn string into an array
--replace numbers in array
--turn array into string
--turn string into number .parseFloat()
--return number 
+console.log(randomNumberButIHateThreesAndSevens())
+*/
+
 
 // 12. Write a function which accepts a sentence as a string, and returns the longest word in that sentence.
 
 // 'I ate toast for breakfast' -> 'breakfast'
 
+var longestWordIs = function(stringSentence) {
+    
+}
 
 // 13. Write a function which accepts a sentence as a string. Capitalize the first letter of each word of the string, and return that. 
 
