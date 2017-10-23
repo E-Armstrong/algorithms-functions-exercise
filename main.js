@@ -26,12 +26,12 @@ console.log(largestNumberIs([0, 1, 2, 3, 4, 6, 7, 9, 10]))
 
 /*
 var isItALeapYear = function(year) {
-    if ( ( (year % 4) === 0 ) && ( (year % 100) === 0 )  && ( (year % 400) !== 0 ) ) {
+    if ( ( (year % 4) === 0 ) && ( (year % 100) === 0 )  && ( (year % 400) !== 0 ) ) { //first sees if year is both divisible by 4, divisible by 100, and not divisible by 400 (they would have remainders if not divisible hense the modus)
         console.log("false")
-    } else if ( (year % 4) === 0) {
+    } else if ( (year % 4) === 0) { //sees if the year is then divisible by 4, if so then it's a leap year
         console.log("true")
     } else (
-        console.log("false")
+        console.log("false") //if the year isn't divisble by 4 either, then it's definitly not a leap year. 
     )
 }
 
@@ -54,12 +54,11 @@ num/4 % = 0
 testArray1 = [1, 2, 5]
 testArray2 = [1,2,3,4,5]
 testArray3 = [3,4,5]
-masterArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 var arrayFixer = function(testArray) {
     for (i = 0; i < (testArray.length + 1 ); i++) {
-        if (testArray[i] != masterArray[i]) {
-            console.log(masterArray[i])
+        if (testArray[i] != ( i + 1 )) { //compares the first indexes of these arrays to the index + 1 and returns the first value that doesn't match up
+            console.log(i + 1)
             return
         }
     }
@@ -187,10 +186,10 @@ arrayComparer(testArray4a, testArray4b)
 var makeMaxValue = function(array, maxCutoff) {
     var newArray = [] // put the finished values here
     for (i = 0; i < array.length; i++) {
-        if (array[i] > maxCutoff) {
-            newArray.push(maxCutoff)
+        if (array[i] > maxCutoff) { 
+            newArray.push(maxCutoff) //if the array value is greater then the cut off then a new array gets the cutoff value
         } else {
-            newArray.push(array[i])
+            newArray.push(array[i]) //otherwise the newArray gets the value that was already in the original array
         }
     }
     return newArray
@@ -238,13 +237,13 @@ console.log(makeRandomArray())
 /*
 var combineSortedLists = function(sortedList1, sortedList2) {
     var newSortedList = []
-    for (i = 0; i < sortedList1.length; i++) {
+    for (i = 0; i < sortedList1.length; i++) { //puts all of sortedList1 into newSortedList
         newSortedList.push(sortedList1[i])
     }
-    for (i = 0; i < sortedList2.length; i++) {
+    for (i = 0; i < sortedList2.length; i++) { //puts all of sortedList2 into newSortedList
         newSortedList.push(sortedList2[i])
     }
-    return newSortedList.sort(function compareNumbers (a, b) {
+    return newSortedList.sort(function compareNumbers (a, b) { //sorts sorted list numerically
         return a - b;
     })
 }
@@ -393,12 +392,31 @@ var dateDifferenceIs = function(date1, date2) {
 console.log(dateDifferenceIs('1998/01/24', '1999/01/25'))
 */
 
-// 15. Write a function called `add` that adds two numbers together, and returns the result. The function must be defined such that it can be called in two different ways to achieve the same result. See the example below:
+/*
+15. Write a function called `add` that adds two numbers together, 
+and returns the result. The function must be defined such that 
+it can be called in two different ways to achieve the same result. 
+See the example below:
 
-// ```javascript
-// var seven = add(5,2) // returns 7
-// seven = add(5)(2) // also returns 7
-// ```
+```javascript
+var seven = add(5,2) // returns 7
+seven = add(5)(2) // also returns 7
+```
+*/
+
+/*
+function add(x, y){
+    if (arguments.length === 1) { //this handy method "arguments.length === 1" says if there is only one argument [ ex: add(4) ] then to use a whole addittional function where the next number has to be added in separate parentheses [ i.e. add(4)(3) ]
+        return function(z) {
+            return x + z
+        }
+    }
+    return x + y
+}
+
+console.log(add(4, 2))
+console.log(add(4)(2))
+*/
 
 /*
 16. Write a function which takes one argument, 
@@ -427,4 +445,13 @@ console.log(isPositiveInteger(NaN))
 console.log(isPositiveInteger(undefined))
 */
 
-// 17. Write a function which returns a random integer from 1 to 10.
+/*
+17. Write a function which returns a random integer from 1 to 10.
+*/
+
+/*
+var randomInteger = function() {
+    return Math.ceil(Math.random() * 10) //prints a random integer between 0-10 but Math.ceil makes sure the number always roudns up
+}
+ console.log(randomInteger())
+ */
