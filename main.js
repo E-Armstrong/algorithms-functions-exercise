@@ -376,9 +376,22 @@ var upperCaseEachWord = function(string) {
 console.log(upperCaseEachWord("hey hi how are ya?"))
 */
 
+/*
+14. Write a function which takes two dates as strings in the format 'YYYY/MM/DD' and returns the number of days between them.
+'1998/01/24', '1999/01/25' -> 366
+*/
 
-// 14. Write a function which takes two dates as strings in the format 'YYYY/MM/DD' and returns the number of days between them.
-// '1998/01/24', '1999/01/25' -> 366
+/*
+var dateDifferenceIs = function(date1, date2) {
+    date1 = new Date(date1) //need to convert the input dates into a date format Javascript recognizes 
+    date2 = new Date(date2)
+    var totalDifference = Math.abs(date2.getTime() - date1.getTime()) //gets the difference between the dates. getTime tells how much time in milliseconds has passed since 1970 for each date, Math.abs is like absolute value in math | -6 | = 6
+    var evenDaysDifference = Math.ceil(totalDifference / (1000 * 60 * 60 * 24)) // 1 millasecond * 1000 millaseconds (gets you to 1 second) * 60 seconds * 60 minutes * 24 hours = days! yay! Math.ceil rounds up so we're not giving partial days
+    return evenDaysDifference
+}
+
+console.log(dateDifferenceIs('1998/01/24', '1999/01/25'))
+*/
 
 // 15. Write a function called `add` that adds two numbers together, and returns the result. The function must be defined such that it can be called in two different ways to achieve the same result. See the example below:
 
