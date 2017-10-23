@@ -387,6 +387,31 @@ console.log(upperCaseEachWord("hey hi how are ya?"))
 // seven = add(5)(2) // also returns 7
 // ```
 
-// 16. Write a function which takes one argument, and returns true if that argument is a whole number (a non-negative integer, e.g. 0, 1, 5, 21, 1000, etc). If the argument is negative, is a decimal number, or is not a number at all, return false. 
+/*
+16. Write a function which takes one argument, 
+and returns true if that argument is a whole number 
+(a non-negative integer, e.g. 0, 1, 5, 21, 1000, etc). 
+If the argument is negative, is a decimal number, or is 
+not a number at all, return false. 
+*/
+
+/*
+var isPositiveInteger = function(randomNumber) {
+    if (randomNumber === NaN || randomNumber === undefined || randomNumber < 0) {
+        return false
+    } else if (Number.isInteger(randomNumber)) {
+        return true
+    } else {
+        return false //if the number is a positive floating point number, this statement will catch it and return false 
+    }
+}
+
+console.log(isPositiveInteger(-100))
+console.log(isPositiveInteger(0))
+console.log(isPositiveInteger(100))
+console.log(isPositiveInteger(100.4))
+console.log(isPositiveInteger(NaN))
+console.log(isPositiveInteger(undefined))
+*/
 
 // 17. Write a function which returns a random integer from 1 to 10.
